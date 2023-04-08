@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 from sklearn.decomposition import PCA
 import numpy as np
 import urllib.parse
+import os
 
 def add_lat_lon(address):
   url = 'https://nominatim.openstreetmap.org/search/' + urllib.parse.quote(address) +'?format=json'
@@ -21,13 +22,18 @@ def add_type(address):
     return response[0]["type"]
   else:
     return None
+  
+def save_df_to_csv(df, city='city'):
+    if not os.path.exists('./output'):
+      os.mkdir('./output')
+    df.to_csv('./output/' + city + '.csv', index=False)
 
 
-def generate_df(url, save_df=False):
+def generate_df(url):
   """ collects attrations from google travel url for a city and generate a df
   """
   r = requests.get(url)
-  soup = BeautifulSoup(r.content, 'html5lib')
+  soup = BeautifulSoup(r.content, 'html.parser')
 
   city = soup.find('div', attrs={'class': 'kQb6Eb'})
   atractions = []
@@ -53,8 +59,6 @@ def generate_df(url, save_df=False):
       reviews.append(np.nan)
 
   df = pd.DataFrame({'atractions': atractions, 'ratings': ratings, 'reviews': reviews, 'notes': notes})
-  if save_df:
-    df.to_csv('city.csv', index=False)
   return df
 
 def generate_combined_score(df):
