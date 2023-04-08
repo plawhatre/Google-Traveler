@@ -55,7 +55,7 @@ def generate_df(url):
       image.append(img_handler['data-src'])
 
     # attractions
-    atractions.append(row.find('div', attrs={'class': 'skFvHc YmWhbc'}).text)
+    atractions.append(row.find('div', attrs={'class': 'skFvHc YmWhbc'}).text.replace(',', '-'))
     
     # notes
     notes.append(row.find('div', attrs={'class': 'nFoFM'}).text)
