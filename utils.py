@@ -37,13 +37,22 @@ def generate_df(url):
   r = requests.get(url)
   soup = BeautifulSoup(r.content, 'html.parser')
 
-  city = soup.find('div', attrs={'class': 'kQb6Eb'})
+  city = soup.find('div', attrs={'class': 'kQb6Eb'}) 
   atractions = []
   notes = [] 
   ratings = []
   reviews = []
+  image = []
 
-  for row in city.find_all_next('div', attrs={'class':'GwjAi'}): 
+  # for row in city.find_all_next('div', attrs={'class':'GwjAi'}): 
+  for row in city.find_all_next('div', attrs={'class':'Ld2paf'}): 
+
+    # image
+    img_handler = row.find('img', attrs={'class': 'R1Ybne YH2pd'})
+    if not img_handler:
+      image.append(None)
+    else:
+      image.append(img_handler['data-src'])
 
     # attractions
     atractions.append(row.find('div', attrs={'class': 'skFvHc YmWhbc'}).text)
@@ -60,7 +69,7 @@ def generate_df(url):
       ratings.append(np.nan)
       reviews.append(np.nan)
 
-  df = pd.DataFrame({'atractions': atractions, 'ratings': ratings, 'reviews': reviews, 'notes': notes})
+  df = pd.DataFrame({'atractions': atractions, 'ratings': ratings, 'reviews': reviews, 'notes': notes, 'image': image})
   return df
 
 def generate_combined_score(df):
