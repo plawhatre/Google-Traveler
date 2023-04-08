@@ -8,7 +8,7 @@ if __name__ == '__main__':
     parsed_url = urlparse(url)
     query_params = parse_qs(parsed_url.query)
     destination = query_params.get('q', [''])[0]
-    print(destination)
+    print('*-*'*20 + destination.upper()+ '*-*'*20)
 
     df = generate_df(url)
     df = generate_combined_score(df)

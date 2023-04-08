@@ -24,6 +24,7 @@ def add_type(address):
     return None
   
 def save_df_to_csv(df, city='city'):
+    print(f"Runing function: {save_df_to_csv.__name__}")
     if not os.path.exists('./output'):
       os.mkdir('./output')
     df.to_csv('./output/' + city + '.csv', index=False)
@@ -32,6 +33,7 @@ def save_df_to_csv(df, city='city'):
 def generate_df(url):
   """ collects attrations from google travel url for a city and generate a df
   """
+  print(f"Runing function: {generate_df.__name__}")
   r = requests.get(url)
   soup = BeautifulSoup(r.content, 'html.parser')
 
@@ -64,6 +66,7 @@ def generate_df(url):
 def generate_combined_score(df):
   """Generate combined score after combining rating and reviews
   """
+  print(f"Runing function: {generate_combined_score.__name__}")
   df['reviews'] = df['reviews'].astype(float)
   df['ratings'] = df['ratings'].astype(float)
 
@@ -113,6 +116,7 @@ def generate_combined_score(df):
 def predict_categories(df, city):
   """ Use nominatim for categorization
   """
+  print(f"Runing function: {predict_categories.__name__}")
   df['category'] = df.atractions.apply(lambda x: add_type(x+', '+city))
 
   return df
@@ -120,6 +124,7 @@ def predict_categories(df, city):
 def combined_score_aggregation(df, method='borda'):
   """ Generate final rank
   """
+  print(f"Runing function: {combined_score_aggregation.__name__}")
   if method == 'borda':
     scores = df.filter(regex=r'^cs_').apply(lambda x: x.rank(ascending=False))
     df['final_rank'] = scores.sum(axis=1).rank(ascending=True)
@@ -142,5 +147,6 @@ def combined_score_aggregation(df, method='borda'):
   return df.sort_values(by=['final_rank'])
 
 def generate_location(df, city):
+  print(f"Runing function: {generate_location.__name__}")
   df['location'] = df.atractions.apply(lambda x: add_lat_lon(x+', '+city))
   return df
