@@ -3,7 +3,6 @@ from utils import (generate_df,generate_combined_score,combined_score_aggregatio
                    generate_location,predict_categories, save_df_to_csv)
 
 if __name__ == '__main__':
-    # destination = 'Seoul'
     url = "https://www.google.com/travel/things-to-do/see-all?dest_mid=%2Fm%2F0hsqf&dest_state_type=sattd&dest_src=yts&q=seoul&ved=0CAMQ__kHahcKEwiA2uu24Ir-AhUAAAAAHQAAAAAQCA"
 
     parsed_url = urlparse(url)

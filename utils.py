@@ -72,16 +72,18 @@ def generate_combined_score(df):
   df = df.dropna()
 
   # 1: multiply rating and reviews
-  df.loc[:, 'cs_multiply'] = df['ratings'] * df['reviews']
+  df['cs_multiply'] = df['ratings'] * df['reviews']
+
+
 
   # 2: weighted sum of rating and reviews
-  df.loc[:, 'cs_weighted_sum'] = 0.7 * df['ratings'] + 0.3 * df['reviews']
+  df['cs_weighted_sum'] = 0.7 * df['ratings'] + 0.3 * df['reviews']
   
   # 3: rank based combined score
-  df.loc[:, 'ratings_rank'] = df['ratings'].rank(ascending=False)
-  df.loc[:, 'reviews_rank'] = df['reviews'].rank(ascending=False)
-  df.loc[:, 'cs_rank'] = df['ratings_rank'] + df['reviews_rank']
-  df = df.drop(['ratings_rank', 'reviews_rank'], axis=1)
+  df['ratings_rank'] = df['ratings'].rank(ascending=False)
+  df['reviews_rank'] = df['reviews'].rank(ascending=False)
+  df['cs_rank'] = df['ratings_rank'] + df['reviews_rank']
+  df = df.drop(['ratings_rank', 'reviews_rank'], axis=1) 
 
   # 4: geometric mean
   df['cs_gm'] = np.sqrt(df['ratings'] * df['reviews'])
