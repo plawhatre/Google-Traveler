@@ -67,6 +67,7 @@ def generate_combined_score(df):
   """Generate combined score after combining rating and reviews
   """
   print(f"Runing function: {generate_combined_score.__name__}")
+  pd.options.mode.chained_assignment = None 
   df['reviews'] = df['reviews'].astype(float)
   df['ratings'] = df['ratings'].astype(float)
 
