@@ -1,12 +1,14 @@
 # Google-Traveler
  Objective - Generate ranking of tourist attractions based on both rating and reviews and to provide a field on which results are sorted and can be observed visually.
 
- ##### Cities for which the data is available
+ ##### Cities for which the data is available\*
  * Hong Kong
  * Macau
  * Seoul
  * Gyeongju
  * Busan
+
+\* NOTE: more cities can be added by following steps mentioned below
 
  ##### Fields on which results can be sorted
 * Final Rank
@@ -21,7 +23,6 @@
 * Combined Score - borda count
 * Combined Score - principle component analysis
 
-\* NOTE: more cities can be added by following steps mentioned below
 
 ### How to use the repo
 First, clone the repo and run `make venv`. Following which
