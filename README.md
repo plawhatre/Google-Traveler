@@ -1,7 +1,8 @@
 # Google-Traveler
+ Objective - Generate a ranking of tourist attractions based on both rating and reviews.
 
 ### How to use the repo
-First, Clone the repo and run `make venv`. Following which
+First, clone the repo and run `make venv`. Following which
 
 1. Open Google travel and select "Things to do".
 2. Make a search of the city you want to scrap data for.
