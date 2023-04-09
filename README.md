@@ -21,6 +21,8 @@
 * Combined Score - borda count
 * Combined Score - principle component analysis
 
+\* NOTE: more cities can be added by following steps mentioned below
+
 ### How to use the repo
 First, clone the repo and run `make venv`. Following which
 
