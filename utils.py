@@ -127,6 +127,7 @@ def predict_categories(df, city):
   """ Use nominatim for categorization
   """
   print(f"Runing function: {predict_categories.__name__}")
+  df.loc[:, 'city'] = city
   df['category'] = df.attractions.apply(lambda x: add_type(x+', '+city))
 
   return df
