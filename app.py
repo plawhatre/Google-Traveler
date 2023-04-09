@@ -26,7 +26,6 @@ def main():
                 st.write("Rank: ", city_attractions[i]['final_rank'])
                 st.write("Rating: ", city_attractions[i]['ratings'])
                 st.write("Reviews: ", city_attractions[i]['reviews'])
-                st.write("Category: ", city_attractions[i]['category'])
                 st.write(city_attractions[i]['notes'])
         with col2:
             if i+1 < len(city_attractions):
@@ -35,7 +34,6 @@ def main():
                 st.write("Rank: ", city_attractions[i+1]['final_rank'])
                 st.write("Rating: ", city_attractions[i+1]['ratings'])
                 st.write("Reviews: ", city_attractions[i+1]['reviews'])
-                st.write("Category: ", city_attractions[i+1]['category'])
                 st.write(city_attractions[i+1]['notes'])        
         with col3:
             if i+2 < len(city_attractions):
@@ -44,7 +42,6 @@ def main():
                 st.write("Rank: ", city_attractions[i+2]['final_rank'])
                 st.write("Rating: ", city_attractions[i+2]['ratings'])
                 st.write("Reviews: ", city_attractions[i+2]['reviews'])
-                st.write("Category: ", city_attractions[i+2]['category'])
                 st.write(city_attractions[i+2]['notes'])                        
 
 # Run the Streamlit app
