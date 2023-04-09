@@ -1,10 +1,15 @@
 # Google-Traveler
 
 ### How to use the repo
-1. Clone the repo and run `make venv`
-2. Run `source traveler/bin/activate` to activate the environment.
-2. Run `python3 ./main.py` to download the data
-3. Run `streamlit run ./app.py` to start the webapp on localhost.
+First, Clone the repo and run `make venv`. Following which
+
+1. Open Google travel and select "Things to do".
+2. Make a search of the city you want to scrap data for.
+3. Scroll a little and click "See all top sights"
+4. Copy url in the list of urls in `main.py`
+5. Run `source traveler/bin/activate` to activate the environment.
+6. Run `python3 ./main.py` to download the data
+7. Run `streamlit run ./app.py` to start the webapp on localhost.
 
 ### Screenshot of the data downloaded using main.py
 ![Downloaded Data](examples/data.png)
