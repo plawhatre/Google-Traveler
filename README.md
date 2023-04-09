@@ -23,6 +23,6 @@ First, clone the repo and run `make venv`. Following which
 ###### c) Seoul
 ![Seoul](examples/seoul.png)
 ###### d) Gyeongju
-![Gyeongu](examples/gyeongu.png)
+![Gyeongu](examples/gyeongju.png)
 ###### e) Busan
 ![Busan](examples/busan.png)
