@@ -1,5 +1,5 @@
 # Google-Traveler
- Objective - Generate ranking of tourist attractions based on both rating and reviews.
+ Objective - Generate ranking of tourist attractions based on both rating and reviews and to provide a field on which results are sorted and can be observed visually. 
 
 ### How to use the repo
 First, clone the repo and run `make venv`. Following which
