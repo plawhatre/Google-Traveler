@@ -38,7 +38,7 @@ def generate_df(url):
   soup = BeautifulSoup(r.content, 'html.parser')
 
   city = soup.find('div', attrs={'class': 'kQb6Eb'}) 
-  atractions = []
+  attractions = []
   notes = [] 
   ratings = []
   reviews = []
@@ -55,7 +55,7 @@ def generate_df(url):
       image.append(img_handler['data-src'])
 
     # attractions
-    atractions.append(row.find('div', attrs={'class': 'skFvHc YmWhbc'}).text.replace(',', '-'))
+    attractions.append(row.find('div', attrs={'class': 'skFvHc YmWhbc'}).text.replace(',', '-'))
     
     # notes
     notes.append(row.find('div', attrs={'class': 'nFoFM'}).text)
@@ -69,7 +69,7 @@ def generate_df(url):
       ratings.append(np.nan)
       reviews.append(np.nan)
 
-  df = pd.DataFrame({'atractions': atractions, 'ratings': ratings, 'reviews': reviews, 'notes': notes, 'image': image})
+  df = pd.DataFrame({'attractions': attractions, 'ratings': ratings, 'reviews': reviews, 'notes': notes, 'image': image})
   return df
 
 def generate_combined_score(df):
@@ -127,7 +127,7 @@ def predict_categories(df, city):
   """ Use nominatim for categorization
   """
   print(f"Runing function: {predict_categories.__name__}")
-  df['category'] = df.atractions.apply(lambda x: add_type(x+', '+city))
+  df['category'] = df.attractions.apply(lambda x: add_type(x+', '+city))
 
   return df
 
@@ -158,5 +158,5 @@ def combined_score_aggregation(df, method='borda'):
 
 def generate_location(df, city):
   print(f"Runing function: {generate_location.__name__}")
-  df['location'] = df.atractions.apply(lambda x: add_lat_lon(x+', '+city))
+  df['location'] = df.attractions.apply(lambda x: add_lat_lon(x+', '+city))
   return df
