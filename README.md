@@ -16,9 +16,13 @@ First, clone the repo and run `make venv`. Following which
 ![Downloaded Data](examples/data.png)
 
 ### Screenshot of the app
-###### a) Soeul
-![seoul](examples/seoul.png)
-###### b) Hong Kong
+###### a) Hong Kong
 ![hong_kong](examples/hong_kong.png)
-###### c) Gyeongju
-![gyeongju](examples/gyeongju.png)
+###### b) Macau
+![macau](examples/macau.png)
+###### c) Seoul
+![Seoul](examples/seoul.png)
+###### d) Gyeongju
+![Gyeongu](examples/gyeongu.png)
+###### e) Busan
+![Busan](examples/busan.png)
