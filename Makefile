@@ -6,4 +6,4 @@ venv:
 	pip install -r requirements.txt
 
 run:
-	streamlit run ./Google-Traveler/app.py
+	streamlit run ./app.py
