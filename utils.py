@@ -128,7 +128,10 @@ def predict_categories(df, city):
   """
   print(f"Runing function: {predict_categories.__name__}")
   df.loc[:, 'city'] = city
-  df['category'] = df.attractions.apply(lambda x: add_type(x+', '+city))
+  try:
+    df['category'] = df.attractions.apply(lambda x: add_type(x+', '+city))
+  except:
+    df['category'] = ' , '+city
 
   return df
 
@@ -159,5 +162,8 @@ def combined_score_aggregation(df, method='borda'):
 
 def generate_location(df, city):
   print(f"Runing function: {generate_location.__name__}")
-  df['location'] = df.attractions.apply(lambda x: add_lat_lon(x+', '+city))
+  try:
+    df['location'] = df.attractions.apply(lambda x: add_lat_lon(x+', '+city))
+  except:
+    df['location'] = " , "+city
   return df
